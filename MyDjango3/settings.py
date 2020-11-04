@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# 当前项目位置 E:\pyPro\MyDjango3
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -29,7 +30,19 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# 请注意 INSTALLED_APPS 设置在文件顶部。它保存在这个django实例中激活的所有django应用程序的名称。应用程序可以在多个项目中使用，您可以打包和分发它们以供其他人在其项目中使用。
+# django.contrib.admin --管理网站。您很快就会使用它。
+# django.contrib.auth --认证系统。
+# django.contrib.contenttypes --内容类型的框架。
+# django.contrib.sessions --会话框架。
+# django.contrib.messages --消息传递框架。
+# django.contrib.staticfiles --管理静态文件的框架。
 
+# 激活模型
+# 这一小段模型代码为Django提供了大量信息。有了它，Django能够：
+# 创建数据库架构 (CREATETABLE 声明）。
+# 创建用于访问的python数据库访问API Question 和 Choice 对象。
+# 但首先我们需要告诉我们的项目 polls 已安装应用程序。
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    #自己的模块
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +71,7 @@ ROOT_URLCONF = 'MyDjango3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # [ from django.shortcuts import render ] render时，拼接此 DIRS /templates/..
         'DIRS': [os.path.join(BASE_DIR, 'templates')]
         ,
         'APP_DIRS': True,
@@ -71,7 +89,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'MyDjango3.wsgi.application'
 
 
-# Database
+# Database 数据库默认使用sqlite3
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
