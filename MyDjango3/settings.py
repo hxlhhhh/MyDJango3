@@ -49,13 +49,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # 静态文件处理 就是这样 django.contrib.staticfiles 用于：它将静态文件从每个应用程序（以及您指定的任何其他位置）收集到一个可以在生产中轻松提供服务的位置。
     'django.contrib.staticfiles',
 
 
     #自己的模块
     # 模块渲染DjangoTemplates
     # 默认设置文件配置 DjangoTemplates 后端APP_DIRS 选项设置为 True
-
     'polls.apps.PollsConfig',
 ]
 
