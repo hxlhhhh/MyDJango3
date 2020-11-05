@@ -53,6 +53,9 @@ INSTALLED_APPS = [
 
 
     #自己的模块
+    # 模块渲染DjangoTemplates
+    # 默认设置文件配置 DjangoTemplates 后端APP_DIRS 选项设置为 True
+
     'polls.apps.PollsConfig',
 ]
 
@@ -67,7 +70,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'MyDjango3.urls'
-
+print(os.path.join(BASE_DIR, 'templates'))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

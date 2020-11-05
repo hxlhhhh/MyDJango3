@@ -14,6 +14,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     # 最后，注意定义了一个关系，使用 ForeignKey . 告诉 Django 每个人 Choice 与单个 Question . Django支持所有常见的数据库关系：多对一、多对多和一对一。
+    # ,related_name="zhangsa"前端对应
     question=models.ForeignKey(Question,on_delete=models.CASCADE)
     choice_text=models.CharField(max_length=200)
     # A Field 也可以有各种可选参数；在本例中，我们已经设置了 default 价值 votes 到0。
